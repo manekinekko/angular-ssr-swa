@@ -25,3 +25,23 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+# Deploying to Azure Static Web Apps
+
+Follow the [Quickstart](https://bit.ly/2ABy9Cb) guide for Azure Static Web Apps and use the following configuration:
+
+![screenshot-1589980551002](https://user-images.githubusercontent.com/1699357/82451694-a3202000-9aae-11ea-813a-35db0092b9df.png)
+
+![screenshot-1589980574080](https://user-images.githubusercontent.com/1699357/82450911-95b66600-9aad-11ea-96d0-4576ff8ae07f.png)
+
+![screenshot-1589980828843](https://user-images.githubusercontent.com/1699357/82450907-94853900-9aad-11ea-9e52-ee0b9e21b5c1.png)
+
+By default, Azure Static Web Apps will execute the `npm run build` script. We need to update the [generated workflow file](https://github.com/manekinekko/angular-ssr-swa/blob/master/.github/workflows/azure-static-web-apps-blue-bay-00cc1f303.yml#L30) and explicitely run the `npm run prerender` script:
+
+![angular-ssr-swa:azure-static-web-apps-blue-bay-00c](https://user-images.githubusercontent.com/1699357/82451219-f645a300-9aad-11ea-9e26-1db86ecc5aa3.png)
+
+After saving and commiting our changes, another build will trigger and we should get the prerendered app deployed at the given URL for your app:
+
+![screenshot-1589979864867](https://user-images.githubusercontent.com/1699357/82449287-496a2680-9aab-11ea-8c30-a7aa1db82deb.png)
+
+
